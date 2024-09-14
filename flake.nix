@@ -50,7 +50,7 @@
       flake = {
         # Configuration for my M1 Macbook Max (using nix-darwin)
         darwinConfigurations.appreciate =
-          self.nixos-flake.lib.mkMacosSystem
+          self.nixos-flake.lib.rkmbp
             ./systems/darwin.nix;
 
         # Hetzner dedicated
@@ -61,13 +61,13 @@
 
       perSystem = { self', inputs', pkgs, system, config, ... }: {
         # My Ubuntu VM
-        legacyPackages.homeConfigurations."srid@ubuntu" =
+        legacyPackages.homeConfigurations."mrkhachaturov@ubuntu" =
           self.nixos-flake.lib.mkHomeConfiguration pkgs {
             imports = [
               self.homeModules.common-linux
             ];
-            home.username = "srid";
-            home.homeDirectory = "/home/srid";
+            home.username = "mrkhachaturov";
+            home.homeDirectory = "/home/mrkhachaturov";
           };
 
         # Flake inputs we want to update periodically
