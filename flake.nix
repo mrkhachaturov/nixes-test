@@ -49,8 +49,8 @@
 
       flake = {
         # Configuration for my M1 Macbook Max (using nix-darwin)
-        darwinConfigurations.appreciate =
-          self.nixos-flake.lib.rkmbp
+        darwinConfigurations.rkmbp =
+          self.nixos-flake.lib.mkMacosSystem
             ./systems/darwin.nix;
 
         # Hetzner dedicated
